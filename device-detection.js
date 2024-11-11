@@ -66,3 +66,13 @@ AFRAME.registerComponent('device-adjustable', {
     deviceDetector.adjustComponentBehavior(this);
   }
 });
+
+AFRAME.registerComponent('device-listener', {
+  init: function () {
+    var el = this.el;
+    el.sceneEl.addEventListener('deviceDetected', function (event) {
+      console.log('Detected device type:', event.detail.deviceType);
+      // Perform custom actions based on device type
+    });
+  }
+});
