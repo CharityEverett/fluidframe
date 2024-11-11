@@ -37,6 +37,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Charity Everett - [@CharitylovesXR](https://twitter.com/yourtwitter) - charityeverett23@gmail.com
+Charity Everett - [@CharitylovesXR](https://twitter.com/CharitylovesXR) - charityeverett23@gmail.com
 
 Project Link: [https://github.com/CharityEverett/fluidframe](https://github.com/CharityEverett/fluidframe)
