@@ -18,22 +18,22 @@ FluidFrame is a responsive design toolkit for A-Frame, enabling developers to cr
 
 1. Include the scripts in your HTML file:
 
-```html
 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <script src="path/to/device-detection.js"></script>
-<script src="path/to/fluid-frame.js"></script>
+<script src="path/to/fluid-frame.js"></script> 
 
-Add the device-detector component to your A-Frame scene:
-xml
-<a-scene device-detector>
+2. Add the device-detector component to your A-Frame scene:
+   
+ <a-scene device-detector>
   <!-- Your scene content -->
 </a-scene>
 
-Use the fluid-frame component on entities you want to be responsive:
-xml
+3. Use the fluid-frame component on entities you want to be responsive:
+   
 <a-box fluid-frame="minScale: 0.5; maxScale: 2; scaleThreshold: 1000" position="0 1.5 -3" color="#4CC3D9"></a-box>
 
-Configuration
+## Configuration
+
 The fluid-frame component accepts the following properties:
 minScale: Minimum scale factor (default: 0.5)
 maxScale: Maximum scale factor (default: 2)
@@ -50,7 +50,7 @@ License
 This project is licensed under the MIT License - see the LICENSE file for details.
 Support
 If you encounter any issues or have questions, please file an issue on the GitHub repository.
-text
+
 
 This README provides an overview of FluidFrame, its features, installation instructions, usage examples, and configuration options. It also includes sections on contributing and support.
 
