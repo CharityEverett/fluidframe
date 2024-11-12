@@ -49,16 +49,16 @@ The 'fluid-frame' component accepts the following properties:
 * 'desktopScale': Scale factor for desktop devices (default: 1)
 * 'vrScale': Scale factor for VR mode (default: 1)
 
-##Examples
+## Examples
 Check out the examples folder for sample implementations of FluidFrame.
 
-##Contributing
+## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-##License
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-##Support
+## Support
 If you encounter any issues or have questions, please file an issue on the GitHub repository.
 
 
