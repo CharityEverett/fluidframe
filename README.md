@@ -18,9 +18,10 @@ FluidFrame is a responsive design toolkit for A-Frame, enabling developers to cr
 
 1. Include the scripts in your HTML file:
 
-'<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>'
-'<script src="path/to/device-detection.js"></script>'
-'<script src="path/to/fluid-frame.js"></script>'
+'''html
+<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+<script src="path/to/device-detection.js"></script>
+<script src="path/to/fluid-frame.js"></script> '''html
 
 2. Add the device-detector component to your A-Frame scene:
    
