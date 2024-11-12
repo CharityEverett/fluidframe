@@ -40,21 +40,25 @@ FluidFrame is a responsive design toolkit for A-Frame, enabling developers to cr
 
 ## Configuration
 
-The fluid-frame component accepts the following properties:
-minScale: Minimum scale factor (default: 0.5)
-maxScale: Maximum scale factor (default: 2)
-scaleThreshold: Width threshold for scaling (default: 1000)
-mobileScale: Scale factor for mobile devices (default: 0.7)
-tabletScale: Scale factor for tablet devices (default: 0.85)
-desktopScale: Scale factor for desktop devices (default: 1)
-vrScale: Scale factor for VR mode (default: 1)
-Examples
+The 'fluid-frame' component accepts the following properties:
+* 'minScale': Minimum scale factor (default: 0.5)
+* 'maxScale': Maximum scale factor (default: 2)
+* 'scaleThreshold': Width threshold for scaling (default: 1000)
+* 'mobileScale': Scale factor for mobile devices (default: 0.7)
+* 'tabletScale': Scale factor for tablet devices (default: 0.85)
+* 'desktopScale': Scale factor for desktop devices (default: 1)
+* 'vrScale': Scale factor for VR mode (default: 1)
+
+##Examples
 Check out the examples folder for sample implementations of FluidFrame.
-Contributing
+
+##Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
-License
+
+##License
 This project is licensed under the MIT License - see the LICENSE file for details.
-Support
+
+##Support
 If you encounter any issues or have questions, please file an issue on the GitHub repository.
 
 
