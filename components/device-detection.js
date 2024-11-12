@@ -1,7 +1,22 @@
 AFRAME.registerComponent('device-detector', {
-  schema: {
-    // You can add properties here if needed
+  init: function () {
+    this.detectDevice();
+    this.el.addEventListener('enter-vr', this.detectDevice.bind(this));
+    this.el.addEventListener('exit-vr', this.detectDevice.bind(this));
   },
+  
+  detectDevice: function () {
+    var isVR = this.el.is('vr-mode');
+    var isMobile = AFRAME.utils.device.isMobile();
+    var isTablet = AFRAME.utils.device.isTablet();
+
+    var deviceType = isVR ? 'vr' : (isTablet ? 'tablet' : (isMobile ? 'mobile' : 'desktop'));
+
+    this.el.setAttribute('device-type', deviceType);
+    this.el.emit('deviceDetected', { deviceType: deviceType });
+  }
+});
+
 
   init: function () {
     this.deviceType = this.detectDeviceType();
@@ -74,5 +89,51 @@ AFRAME.registerComponent('device-listener', {
       console.log('Detected device type:', event.detail.deviceType);
       // Perform custom actions based on device type
     });
+  }
+});
+
+AFRAME.registerComponent('fluid-frame', {
+  dependencies: ['device-detector'],
+
+  schema: {
+    minScale: {type: 'number', default: 0.5},
+    maxScale: {type: 'number', default: 2},
+    scaleThreshold: {type: 'number', default: 1000},
+    mobileScale: {type: 'number', default: 0.7},
+    tabletScale: {type: 'number', default: 0.85},
+    vrScale: {type: 'number', default: 1}
+  },
+
+  init: function() {
+    this.updateScale = this.updateScale.bind(this);
+    window.addEventListener('resize', this.updateScale);
+    this.el.sceneEl.addEventListener('deviceDetected', this.updateScale);
+    this.updateScale();
+  },
+
+  remove: function() {
+    window.removeEventListener('resize', this.updateScale);
+    this.el.sceneEl.removeEventListener('deviceDetected', this.updateScale);
+  },
+
+  updateScale: function() {
+    var data = this.data;
+    var el = this.el;
+    
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    var aspectRatio = width / height;
+    
+    var deviceType = this.el.sceneEl.getAttribute('device-type');
+    var deviceScale = data[deviceType + 'Scale'] || 1;
+    
+    var widthScale = Math.max(data.minScale, Math.min(width / data.scaleThreshold, data.maxScale));
+    var aspectScale = Math.max(data.minScale, Math.min(aspectRatio, data.maxScale));
+    
+    var finalScale = ((widthScale + aspectScale) / 2) * deviceScale;
+    
+    el.object3D.scale.set(finalScale, finalScale, finalScale);
+    
+    el.emit('scaleChanged', {scale: finalScale, deviceType: deviceType});
   }
 });
